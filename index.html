@@ -278,24 +278,30 @@
         }
 
         .lang-switcher {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 100;
             display: flex;
-            gap: 6px;
-            margin: 16px 0 10px;
-            justify-content: center;
+            gap: 4px;
             flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 180px;
         }
 
         .lang-btn {
             border: 2px solid var(--orange-light);
-            background: var(--white);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(6px);
             border-radius: 50px;
-            padding: 5px 12px;
+            padding: 4px 9px;
             font-family: 'Nunito', sans-serif;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 800;
             color: var(--text-mid);
             cursor: pointer;
             transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(120,80,60,0.12);
         }
 
         .lang-btn.active {
@@ -607,6 +613,15 @@
 </head>
 <body>
 
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en', this)">🇬🇧 EN</button>
+        <button class="lang-btn" onclick="setLang('ja', this)">🇯🇵 JA</button>
+        <button class="lang-btn" onclick="setLang('zh', this)">🇨🇳 ZH</button>
+        <button class="lang-btn" onclick="setLang('ko', this)">🇰🇷 KO</button>
+        <button class="lang-btn" onclick="setLang('fr', this)">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="setLang('es', this)">🇪🇸 ES</button>
+    </div>
+
     <div class="header">
         <span class="header-house">🏠</span>
         <h1>Feliz Stay 907</h1>
@@ -707,23 +722,6 @@
             </div>
         </div>
     </div>
-
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('en', this)">🇬🇧 EN</button>
-        <button class="lang-btn" onclick="setLang('ja', this)">🇯🇵 日本語</button>
-        <button class="lang-btn" onclick="setLang('zh', this)">🇨🇳 中文</button>
-        <button class="lang-btn" onclick="setLang('ko', this)">🇰🇷 한국어</button>
-        <button class="lang-btn" onclick="setLang('fr', this)">🇫🇷 FR</button>
-        <button class="lang-btn" onclick="setLang('es', this)">🇪🇸 ES</button>
-    </div>
-
-    <a href="house-rules/" class="rules-pill" style="text-decoration:none; display:flex; cursor:pointer;">
-        <span class="rule-icon">📋</span>
-        <div class="rule-text">
-            <div class="rule-title" data-i18n="houseRulesTitle">House Rules ›</div>
-            <p data-i18n="houseRulesBody">🔇 Quiet hours: 22:00–8:00<br>🚭 No smoking (incl. balcony)<br>👟 No shoes indoors<br>🔒 Lock door when sleeping / going out<br>💡 Turn off lights & A/C when out</p>
-        </div>
-    </a>
 
     <div class="emergency-strip">
         <span class="em-icon">🚨</span>
