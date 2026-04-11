@@ -266,6 +266,7 @@
         .pl-btn:nth-child(9)  { --btn-accent: #5a7fc0;           animation-delay: 0.45s; }
         .pl-btn:nth-child(10) { --btn-accent: #e09030;           animation-delay: 0.5s; }
         .pl-btn:nth-child(11) { --btn-accent: #c0383a;           animation-delay: 0.55s; }
+        .pl-btn:nth-child(12) { --btn-accent: #7a5cb8;           animation-delay: 0.6s; }
 
         @keyframes popIn {
             from { opacity: 0; transform: scale(0.85) translateY(12px); }
@@ -625,7 +626,7 @@
     <div class="header">
         <span class="header-house">🏠</span>
         <h1>Feliz Stay 907</h1>
-        <p class="header-sub" data-i18n="headerSub">Welcome Guide ✨</p>
+        <p class="header-sub" data-i18n="headerSub">Welcome Guide ✨ Welcome!</p>
     </div>
 
     <div class="wifi-banner">
@@ -701,6 +702,11 @@
                 <span class="pl-en" data-i18n="btn11">Emergency</span>
                 <span class="pl-ja">緊急時の連絡</span>
             </a>
+            <a href="gas-reset/" class="pl-btn">
+                <span class="pl-icon">🔥</span>
+                <span class="pl-en" data-i18n="btn12">Gas Reset</span>
+                <span class="pl-ja">ガスメーター復帰</span>
+            </a>
         </div>
     </div>
 
@@ -757,7 +763,7 @@
 
         const UI_STRINGS = {
             en: {
-                headerSub:      'Welcome Guide ✨',
+                headerSub:      'Welcome Guide ✨ Welcome!',
                 guestMenu:      'Guest Menu',
                 btn1:           'Route to Accommodations',
                 btn2:           'By Taxi',
@@ -770,6 +776,7 @@
                 btn9:           'Laundry',
                 btn10:          'Circuit Breaker',
                 btn11:          'Emergency',
+                btn12:          'Gas Reset',
                 houseRulesTitle:'House Rules ›',
                 houseRulesBody: '🔇 Quiet hours: 22:00–8:00<br>🚭 No smoking (incl. balcony)<br>👟 No shoes indoors<br>🔒 Lock door when sleeping / going out<br>💡 Turn off lights & A/C when out',
                 emergencyTitle: 'Emergency',
@@ -788,6 +795,7 @@
                 btn9:           '洗濯機の使い方',
                 btn10:          'ブレーカーについて',
                 btn11:          '緊急時の連絡',
+                btn12:          'ガスメーター復帰',
                 houseRulesTitle:'ハウスルール ›',
                 houseRulesBody: '🔇 静粛時間: 22:00〜8:00<br>🚭 禁煙（バルコニー含む）<br>👟 室内は土足厳禁<br>🔒 就寝・外出時は必ず施錠<br>💡 外出時は電気・エアコンをお切りください',
                 emergencyTitle: '緊急連絡先',
@@ -806,6 +814,7 @@
                 btn9:           '洗衣机使用方法',
                 btn10:          '断路器说明',
                 btn11:          '紧急联系',
+                btn12:          '燃气表复位',
                 houseRulesTitle:'房屋规则 ›',
                 houseRulesBody: '🔇 安静时间: 22:00〜8:00<br>🚭 禁止吸烟（含阳台）<br>👟 室内请勿穿鞋<br>🔒 睡觉/外出时请锁门<br>💡 外出时请关灯及空调',
                 emergencyTitle: '紧急联系',
@@ -824,6 +833,7 @@
                 btn9:           '세탁기 사용법',
                 btn10:          '차단기 안내',
                 btn11:          '긴급 연락처',
+                btn12:          '가스 미터 복구',
                 houseRulesTitle:'하우스 규칙 ›',
                 houseRulesBody: '🔇 정숙 시간: 22:00〜8:00<br>🚭 금연 (발코니 포함)<br>👟 실내 신발 착용 금지<br>🔒 취침/외출 시 문 잠금<br>💡 외출 시 조명 및 에어컨 끄기',
                 emergencyTitle: '긴급 연락처',
@@ -842,6 +852,7 @@
                 btn9:           'Utilisation du lave-linge',
                 btn10:          'Disjoncteur',
                 btn11:          'Urgences',
+                btn12:          'Réinitialisation gaz',
                 houseRulesTitle:'Règlement intérieur ›',
                 houseRulesBody: '🔇 Heures calmes: 22h00–8h00<br>🚭 Non-fumeur (balcon inclus)<br>👟 Pas de chaussures à l\'intérieur<br>🔒 Verrouiller la porte en dormant / en sortant<br>💡 Éteindre les lumières et la climatisation en partant',
                 emergencyTitle: 'Urgences',
@@ -860,6 +871,7 @@
                 btn9:           'Uso de la lavadora',
                 btn10:          'Interruptor automático',
                 btn11:          'Emergencias',
+                btn12:          'Reinicio de gas',
                 houseRulesTitle:'Normas de la casa ›',
                 houseRulesBody: '🔇 Horas tranquilas: 22:00–8:00<br>🚭 No fumar (incluido el balcón)<br>👟 No entrar con zapatos<br>🔒 Cerrar la puerta al dormir / al salir<br>💡 Apagar luces y A/C al salir',
                 emergencyTitle: 'Emergencias',
