@@ -940,7 +940,7 @@
                     addMsg(`Error ${res.status}: ${data.error?.message || 'Unknown error'}`, 'bot');
                     return;
                 }
-                const reply = data.content?.[0]?.text || 'Sorry, something went wrong. 😅';
+                const reply = (data.content?.[0]?.text || 'Sorry, something went wrong. 😅').replace(/\*\*/g, '');
                 typing.remove();
                 history.push({ role: 'assistant', content: reply });
                 addMsg(reply, 'bot');
