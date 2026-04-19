@@ -917,8 +917,8 @@
                 </div>
                 <div class="quick-chips" id="quickChips" aria-label="Suggested questions">
                     <button type="button" class="chip" data-chip="chipCheckin" onclick="askChip(this)">🕐 Check-in time?</button>
-                    <button type="button" class="chip" data-chip="chipTrash" onclick="askChip(this)">🗑️ Trash day?</button>
-                    <button type="button" class="chip" data-chip="chipFood" onclick="askChip(this)">🍜 Good food nearby?</button>
+                    <button type="button" class="chip" data-chip="chipCheckout" onclick="askChip(this)">🕔 Check-out time?</button>
+                    <button type="button" class="chip" data-chip="chipWifi" onclick="askChip(this)">📶 Wi-Fi?</button>
                 </div>
                 <div class="chat-input-row">
                     <input type="text" class="chat-input" id="chatInput" placeholder="Type a question…" aria-label="Type your question">
@@ -978,12 +978,12 @@
         let history = [];
 
         const LANG_DATA = {
-            en: { status: 'Always here to help!',   placeholder: 'Type a question…',          welcome: 'Hi! 😊 Welcome to Feliz Stay 907!<br>How can I help you today?',           copied: 'Copied!',     chipCheckin: 'What time is check-in?',        chipTrash: 'When is trash day?',        chipFood: 'Any good food nearby?' },
-            ja: { status: 'いつでもご質問どうぞ！',    placeholder: 'ご質問を入力してください…',    welcome: 'こんにちは！😊 Feliz Stay 907へようこそ！<br>何でもお気軽にどうぞ！',              copied: 'コピーしました！', chipCheckin: 'チェックインは何時ですか？',         chipTrash: 'ゴミ収集日はいつ？',           chipFood: '近くのおすすめのお店は？' },
-            zh: { status: '随时为您服务！',            placeholder: '请输入您的问题…',             welcome: '您好！😊 欢迎来到 Feliz Stay 907！<br>有什么可以帮您的吗？',                       copied: '已复制！',      chipCheckin: '入住时间是几点？',                 chipTrash: '垃圾收集日是哪天？',          chipFood: '附近有什么推荐的美食？' },
-            ko: { status: '언제든지 도와드립니다!',    placeholder: '질문을 입력하세요…',          welcome: '안녕하세요! 😊 Feliz Stay 907에 오신 것을 환영합니다!<br>무엇을 도와드릴까요?',    copied: '복사되었습니다!', chipCheckin: '체크인 시간은 언제인가요?',          chipTrash: '쓰레기 수거일은 언제인가요?',    chipFood: '근처에 맛있는 음식점이 있나요?' },
-            fr: { status: 'Toujours là pour vous!', placeholder: 'Posez votre question…',     welcome: 'Bonjour ! 😊 Bienvenue au Feliz Stay 907 !<br>Comment puis-je vous aider ?',   copied: 'Copié !',     chipCheckin: 'À quelle heure est l\'arrivée ?',    chipTrash: 'Quand est le jour des ordures ?', chipFood: 'Y a-t-il de bons restaurants à proximité ?' },
-            es: { status: '¡Aquí para ayudarle!',   placeholder: 'Escriba su pregunta…',     welcome: '¡Hola! 😊 ¡Bienvenido/a al Feliz Stay 907!<br>¿En qué puedo ayudarle?',        copied: '¡Copiado!',    chipCheckin: '¿A qué hora es el check-in?',        chipTrash: '¿Cuándo es el día de la basura?', chipFood: '¿Hay buena comida cerca?' },
+            en: { status: 'Always here to help!',   placeholder: 'Type a question…',          welcome: 'Hi! 😊 Welcome to Feliz Stay 907!<br>How can I help you today?',           copied: 'Copied!',     chipCheckin: 'What time is check-in?',        chipCheckout: 'What time is check-out?',       chipWifi: 'What is the Wi-Fi password?' },
+            ja: { status: 'いつでもご質問どうぞ！',    placeholder: 'ご質問を入力してください…',    welcome: 'こんにちは！😊 Feliz Stay 907へようこそ！<br>何でもお気軽にどうぞ！',              copied: 'コピーしました！', chipCheckin: 'チェックインは何時ですか？',         chipCheckout: 'チェックアウトは何時ですか？',    chipWifi: 'Wi-Fiのパスワードは？' },
+            zh: { status: '随时为您服务！',            placeholder: '请输入您的问题…',             welcome: '您好！😊 欢迎来到 Feliz Stay 907！<br>有什么可以帮您的吗？',                       copied: '已复制！',      chipCheckin: '入住时间是几点？',                 chipCheckout: '退房时间是几点？',              chipWifi: 'Wi-Fi密码是什么？' },
+            ko: { status: '언제든지 도와드립니다!',    placeholder: '질문을 입력하세요…',          welcome: '안녕하세요! 😊 Feliz Stay 907에 오신 것을 환영합니다!<br>무엇을 도와드릴까요?',    copied: '복사되었습니다!', chipCheckin: '체크인 시간은 언제인가요?',          chipCheckout: '체크아웃 시간은 언제인가요?',    chipWifi: 'Wi-Fi 비밀번호가 뭔가요?' },
+            fr: { status: 'Toujours là pour vous!', placeholder: 'Posez votre question…',     welcome: 'Bonjour ! 😊 Bienvenue au Feliz Stay 907 !<br>Comment puis-je vous aider ?',   copied: 'Copié !',     chipCheckin: 'À quelle heure est l\'arrivée ?',    chipCheckout: 'À quelle heure est le départ ?', chipWifi: 'Quel est le mot de passe Wi-Fi ?' },
+            es: { status: '¡Aquí para ayudarle!',   placeholder: 'Escriba su pregunta…',     welcome: '¡Hola! 😊 ¡Bienvenido/a al Feliz Stay 907!<br>¿En qué puedo ayudarle?',        copied: '¡Copiado!',    chipCheckin: '¿A qué hora es el check-in?',        chipCheckout: '¿A qué hora es el check-out?',   chipWifi: '¿Cuál es la contraseña del Wi-Fi?' },
         };
 
         const UI_STRINGS = {
@@ -1003,7 +1003,7 @@
                 btn9: 'Laundry', btn10: 'Circuit Breaker', btn11: 'Emergency', btn12: 'Gas Reset',
                 emergencyTitle: 'Emergency',
                 emFire: '🚒 Fire', emAmb: '🚑 Ambulance', emPolice: '👮 Police',
-                chipCheckin: '🕐 Check-in time?', chipTrash: '🗑️ Trash day?', chipFood: '🍜 Good food nearby?',
+                chipCheckin: '🕐 Check-in time?', chipCheckout: '🕔 Check-out time?', chipWifi: '📶 Wi-Fi?',
             },
             ja: {
                 headerSub:      'ウェルカムガイド ✨ ようこそ！',
@@ -1021,7 +1021,7 @@
                 btn9: '洗濯機の使い方', btn10: 'ブレーカーについて', btn11: '緊急時の連絡', btn12: 'ガスメーター復帰',
                 emergencyTitle: '緊急連絡先',
                 emFire: '🚒 消防', emAmb: '🚑 救急', emPolice: '👮 警察',
-                chipCheckin: '🕐 チェックイン時間', chipTrash: '🗑️ ゴミ収集日', chipFood: '🍜 近くのお店',
+                chipCheckin: '🕐 チェックイン時間', chipCheckout: '🕔 チェックアウト時間', chipWifi: '📶 Wi-Fi',
             },
             zh: {
                 headerSub:      '欢迎指南 ✨ 欢迎您！',
@@ -1039,7 +1039,7 @@
                 btn9: '洗衣机使用方法', btn10: '断路器说明', btn11: '紧急联系', btn12: '燃气表复位',
                 emergencyTitle: '紧急联系',
                 emFire: '🚒 消防', emAmb: '🚑 救护', emPolice: '👮 警察',
-                chipCheckin: '🕐 入住时间？', chipTrash: '🗑️ 垃圾日？', chipFood: '🍜 附近美食？',
+                chipCheckin: '🕐 入住时间？', chipCheckout: '🕔 退房时间？', chipWifi: '📶 Wi-Fi？',
             },
             ko: {
                 headerSub:      '환영 가이드 ✨ 환영합니다！',
@@ -1057,7 +1057,7 @@
                 btn9: '세탁기 사용법', btn10: '차단기 안내', btn11: '긴급 연락처', btn12: '가스 미터 복구',
                 emergencyTitle: '긴급 연락처',
                 emFire: '🚒 소방', emAmb: '🚑 구급', emPolice: '👮 경찰',
-                chipCheckin: '🕐 체크인 시간?', chipTrash: '🗑️ 쓰레기 날?', chipFood: '🍜 근처 맛집?',
+                chipCheckin: '🕐 체크인 시간?', chipCheckout: '🕔 체크아웃 시간?', chipWifi: '📶 Wi-Fi?',
             },
             fr: {
                 headerSub:      'Guide de bienvenue ✨ Bienvenue !',
@@ -1075,7 +1075,7 @@
                 btn9: 'Utilisation du lave-linge', btn10: 'Disjoncteur', btn11: 'Urgences', btn12: 'Réinitialisation gaz',
                 emergencyTitle: 'Urgences',
                 emFire: '🚒 Pompiers', emAmb: '🚑 Ambulance', emPolice: '👮 Police',
-                chipCheckin: '🕐 Heure d\'arrivée ?', chipTrash: '🗑️ Jour des ordures ?', chipFood: '🍜 Bons restaurants ?',
+                chipCheckin: '🕐 Heure d\'arrivée ?', chipCheckout: '🕔 Heure de départ ?', chipWifi: '📶 Wi-Fi ?',
             },
             es: {
                 headerSub:      'Guía de bienvenida ✨ ¡Bienvenido/a!',
@@ -1093,7 +1093,7 @@
                 btn9: 'Uso de la lavadora', btn10: 'Interruptor automático', btn11: 'Emergencias', btn12: 'Reinicio de gas',
                 emergencyTitle: 'Emergencias',
                 emFire: '🚒 Bomberos', emAmb: '🚑 Ambulancia', emPolice: '👮 Policía',
-                chipCheckin: '🕐 ¿Hora de entrada?', chipTrash: '🗑️ ¿Día de basura?', chipFood: '🍜 ¿Buena comida cerca?',
+                chipCheckin: '🕐 ¿Hora de entrada?', chipCheckout: '🕔 ¿Hora de salida?', chipWifi: '📶 ¿Wi-Fi?',
             },
         };
 
