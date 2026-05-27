@@ -79,12 +79,10 @@ main {
 /* ── Top bar refinement ── */
 .top-bar {
   top: env(safe-area-inset-top);
-  background: rgba(253, 246, 238, 0.82);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent, #f0824a) 20%, transparent);
-  box-shadow: var(--shadow-xs);
-  padding-top: calc(12px + env(safe-area-inset-top));
+  background: linear-gradient(135deg, var(--accent, #f0824a) 0%, color-mix(in srgb, var(--accent, #f0824a) 70%, black) 100%);
+  border-bottom: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  padding-top: calc(16px + env(safe-area-inset-top));
 }
 
 /* ── Back button refinement ── */
@@ -110,6 +108,13 @@ main {
   font-weight: 400;
   font-size: 1.1rem;
   letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+}
+
+.top-title {
+  color: #fff;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
 }
 
 /* ── Hero polish ── */
