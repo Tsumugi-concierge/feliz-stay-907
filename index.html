@@ -1122,6 +1122,7 @@
             document.getElementById('chatMsgs').innerHTML = `<div class="msg bot">${d.welcome}</div>`;
             applyTranslations(lang);
             document.documentElement.lang = lang;
+            try { localStorage.setItem('felizStayLang', lang); } catch (e) {}
         }
 
         async function sendMessage(overrideText) {
@@ -1252,7 +1253,15 @@
             if (e.key === 'Enter' && !e.isComposing) sendMessage();
         });
 
-        applyTranslations('en');
+        const savedLang = (() => { try { return localStorage.getItem('felizStayLang'); } catch (e) { return null; } })();
+        const initialLang = savedLang && UI_STRINGS[savedLang] ? savedLang : 'en';
+        const initialBtn = Array.from(document.querySelectorAll(".lang-btn")).find(btn => btn.getAttribute("onclick") === "setLang('" + initialLang + "', this)");
+        if (initialBtn) {
+            setLang(initialLang, initialBtn);
+        } else {
+            applyTranslations(initialLang);
+            document.documentElement.lang = initialLang;
+        }
     </script>
 </body>
 </html>

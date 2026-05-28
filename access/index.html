@@ -138,6 +138,7 @@ const UI_STRINGS = {
   fr: { pageTitle: "Itinéraire vers l'hébergement", imgAlt: "Itinéraire vers l'hébergement", backToMenu: '← Retour au menu' },
   es: { pageTitle: 'Ruta al alojamiento', imgAlt: 'Ruta al alojamiento', backToMenu: '← Volver al menú' },
 };
+const SITE_NAME = document.title.includes("—") ? document.title.split("—").pop().trim() : "Feliz Stay";
 function applyTranslations(lang) {
   const t = UI_STRINGS[lang];
   if (!t) return;
@@ -149,13 +150,23 @@ function applyTranslations(lang) {
     const key = el.getAttribute('data-i18n-alt');
     if (key in t) el.alt = t[key];
   });
+  document.title = t.pageTitle + ' — ' + SITE_NAME;
+  document.documentElement.lang = lang;
 }
 function setLang(lang, btn) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  try { localStorage.setItem('felizStayLang', lang); } catch (e) {}
   applyTranslations(lang);
 }
-applyTranslations('en');
+const savedLang = (() => { try { return localStorage.getItem('felizStayLang'); } catch (e) { return null; } })();
+const initialLang = savedLang && UI_STRINGS[savedLang] ? savedLang : 'en';
+const initialBtn = Array.from(document.querySelectorAll(".lang-btn")).find(btn => btn.getAttribute("onclick") === "setLang('" + initialLang + "', this)");
+if (initialBtn) {
+  setLang(initialLang, initialBtn);
+} else {
+  applyTranslations(initialLang);
+}
 </script>
 </body>
 </html>
